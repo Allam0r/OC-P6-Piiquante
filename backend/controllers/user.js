@@ -1,4 +1,6 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
 const User = require("../models/User");
 
 // Fonction d'inscription d'un nouvel utilisateur
@@ -45,7 +47,9 @@ exports.login = (req, res, next) => {
               // Si les mots de passe correspondent, envoyer une réponse de succès au client avec l'ID de l'utilisateur et un jeton de connexion
               res.status(200).json({
                 userId: user._id,
-                token: "TOKEN",
+                token: jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", {
+                  expiresIn: "24h",
+                }),
               });
             }
           })
