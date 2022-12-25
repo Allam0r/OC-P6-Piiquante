@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 const userRoutes = require("./routes/user");
 
+require("dotenv").config();
 // Connexion à la base de données avec mongoose.
 // Le lien de connexion inclut l'utilisateur et le mot de passe de la base de données, ainsi que le nom de la base de données
 mongoose
