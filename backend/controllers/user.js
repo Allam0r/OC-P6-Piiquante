@@ -21,7 +21,7 @@ exports.signup = (req, res, next) => {
         .catch((error) =>
           res.status(400).json({
             message:
-              "Erreur de sauvegarde au niveau de la BD ! " + error.message,
+              "Erreur de sauvegarde au niveau de la BDD ! " + error.message,
           })
         );
     })

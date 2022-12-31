@@ -4,7 +4,10 @@ const express = require("express");
 // Importation du module mongoose pour la connexion à la base de données MongoDB
 const mongoose = require("mongoose");
 
+const path = require("path");
+
 const userRoutes = require("./routes/user");
+const sauceRoutes = require("./routes/sauce");
 
 require("dotenv").config();
 // Connexion à la base de données avec mongoose.
@@ -43,7 +46,10 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
+app.use("/images", express.static(path.join(__dirname, "images")));
+
 app.use("/api/auth", userRoutes);
+app.use("/api/sauces", sauceRoutes);
 
 // Exportation de l'application express pour pouvoir l'utiliser dans d'autres fichiers
 module.exports = app;
