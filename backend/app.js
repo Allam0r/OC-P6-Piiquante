@@ -5,11 +5,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const path = require("path");
+const dotenv = require("dotenv");
 
 const userRoutes = require("./routes/user");
 const sauceRoutes = require("./routes/sauce");
 
-require("dotenv").config();
+dotenv.config();
 // Connexion à la base de données avec mongoose.
 // Le lien de connexion inclut l'utilisateur et le mot de passe de la base de données, ainsi que le nom de la base de données
 mongoose
