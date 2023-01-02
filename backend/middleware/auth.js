@@ -9,6 +9,7 @@ module.exports = (req, res, next) => {
     const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
     // Récupère l'identifiant de l'utilisateur à partir du token décodé
     const userId = decodedToken.userId;
+    req.auth = { userId };
     // Si l'identifiant de l'utilisateur est présent dans le corps de la requête et qu'il ne correspond pas à l'identifiant de l'utilisateur du token, lance une erreur
     if (req.body.userId && req.body.userId !== userId) {
       throw "Invalid user ID";
