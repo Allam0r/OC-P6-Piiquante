@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 const path = require("path");
 const dotenv = require("dotenv");
+const helmet = require("helmet");
 
 const userRoutes = require("./routes/user");
 const sauceRoutes = require("./routes/sauce");
@@ -45,6 +46,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(helmet());
 app.use(express.json());
 
 app.use("/images", express.static(path.join(__dirname, "images")));
