@@ -18,6 +18,6 @@ passwordSchema
   .spaces()
   .is()
   .not()
-  .oneOf(["Passw0rd", "Password123"]); // Blacklist these values
+  .oneOf(["Passw0rd", "Password123"]);
 
 module.exports = passwordSchema;
