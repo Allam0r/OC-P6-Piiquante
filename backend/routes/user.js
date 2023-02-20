@@ -5,8 +5,10 @@ const router = express.Router();
 // Importation du contrôleur de l'utilisateur
 const userCtrl = require("../controllers/user");
 
+const passwordCtrl = require("../middleware/password");
+
 // Définition de la route POST /signup pour la création d'un compte utilisateur
-router.post("/signup", userCtrl.signup);
+router.post("/signup", passwordCtrl, userCtrl.signup);
 // Définition de la route POST /login pour la connexion d'un utilisateur
 router.post("/login", userCtrl.login);
 
